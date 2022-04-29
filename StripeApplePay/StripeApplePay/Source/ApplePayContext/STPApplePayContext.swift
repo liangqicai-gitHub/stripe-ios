@@ -84,9 +84,9 @@ public class STPApplePayContext: NSObject, PKPaymentAuthorizationControllerDeleg
     ///   - delegate:                    The delegate.
     public required init?(paymentRequest: PKPaymentRequest, delegate: _stpinternal_STPApplePayContextDelegateBase?) {
         STPAnalyticsClient.sharedClient.addClass(toProductUsageIfNecessary: STPApplePayContext.self)
-        if !StripeAPI.canSubmitPaymentRequest(paymentRequest) {
-            return nil
-        }
+//        if !StripeAPI.canSubmitPaymentRequest(paymentRequest) {
+//            return nil
+//        }
 
         authorizationController = PKPaymentAuthorizationController(paymentRequest: paymentRequest)
         if authorizationController == nil {
@@ -107,9 +107,9 @@ public class STPApplePayContext: NSObject, PKPaymentAuthorizationControllerDeleg
     public required init?(paymentRequest: PKPaymentRequest, delegate: ApplePayContextDelegate) {
         STPAnalyticsClient.sharedClient.addClass(toProductUsageIfNecessary: STPApplePayContext.self)
         STPAnalyticsClient.sharedClient.addClass(toProductUsageIfNecessary: ModernApplePayContext.self)
-        if !StripeAPI.canSubmitPaymentRequest(paymentRequest) {
-            return nil
-        }
+//        if !StripeAPI.canSubmitPaymentRequest(paymentRequest) {
+//            return nil
+//        }
 
         authorizationController = PKPaymentAuthorizationController(paymentRequest: paymentRequest)
         if authorizationController == nil {
